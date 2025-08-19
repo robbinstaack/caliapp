@@ -1,102 +1,124 @@
-import Image from "next/image";
+// page.js
+// This is the main homepage for the Product Team Workshop
+// It provides a welcome message, agenda, and setup instructions
+
+import WelcomeSection from "./components/WelcomeSection";
+import AgendaSection from "./components/AgendaSection";
+import InstallationGuide from "./components/InstallationGuide";
+import CursorGuideSection from "./components/CursorGuideSection";
+import ProjectStructureSection from "./components/ProjectStructureSection";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gray-100">
+      {/* Simple navigation bar for workshop */}
+      <nav className="bg-white shadow-sm border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Workshop branding */}
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                PW
+              </div>
+              <div>
+                <h1 className="text-lg font-semibold text-gray-800">
+                  Product Workshop
+                </h1>
+                <p className="text-sm text-gray-500">
+                  Web Development Training
+                </p>
+              </div>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {/* Simple navigation menu */}
+            <div className="hidden md:flex space-x-6">
+              <a
+                href="#welcome"
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                Willkommen
+              </a>
+              <a
+                href="#agenda"
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                Agenda
+              </a>
+              <a
+                href="#setup"
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                Setup
+              </a>
+              <a
+                href="#cursor"
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                Cursor
+              </a>
+              <a
+                href="#projekt"
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+              >
+                Projekt
+              </a>
+              <a
+                href="/karte"
+                className="text-gray-600 hover:text-green-600 transition-colors font-medium"
+              >
+                🗺️ Karte
+              </a>
+            </div>
+          </div>
         </div>
+      </nav>
+
+      {/* Main content sections */}
+      <main>
+        {/* Welcome section with workshop introduction */}
+        <section id="welcome">
+          <WelcomeSection />
+        </section>
+
+        {/* Agenda section showing today's schedule */}
+        <section id="agenda">
+          <AgendaSection />
+        </section>
+
+        {/* Setup guide with installation instructions */}
+        <section id="setup">
+          <InstallationGuide />
+        </section>
+
+        {/* Cursor AI Guide section */}
+        <section id="cursor">
+          <CursorGuideSection />
+        </section>
+
+        {/* Project Structure section */}
+        <section id="projekt">
+          <ProjectStructureSection />
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Simple footer with contact info */}
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold mb-2">
+              Product Team Workshop
+            </h3>
+            <p className="text-gray-300">
+              Bei Fragen während des Workshops, meldet euch gerne!
+            </p>
+          </div>
+
+          <div className="border-t border-gray-700 pt-4">
+            <p className="text-gray-400 text-sm">
+              © 2024 Product Workshop - Viel Erfolg beim Lernen! 🚀
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );

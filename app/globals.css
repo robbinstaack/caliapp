@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
+/* 
+  Global CSS for Product Team Workshop
+  Clean, professional styling for instructional content
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light theme colors for better readability in workshop setting */
+  --background: #ffffff; /* Clean white background */
+  --foreground: #1f2937; /* Dark gray for text */
+  --primary: #2563eb; /* Blue-600 for primary actions */
+  --secondary: #6b7280; /* Gray-500 for secondary elements */
+  --accent: #7c3aed; /* Purple-600 for accents */
+  --success: #059669; /* Green-600 for success states */
+  --warning: #d97706; /* Orange-600 for warnings */
 }
 
 @theme inline {
@@ -12,15 +23,87 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Clean, professional styling for workshop content */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Smooth scrolling for navigation links */
+  scroll-behavior: smooth;
+  /* Prevent horizontal scroll on smaller screens */
+  overflow-x: hidden;
+  /* Better line height for readability */
+  line-height: 1.6;
+}
+
+/* Custom scrollbar styling for light theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6; /* Gray-100 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db; /* Gray-300 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af; /* Gray-400 */
+}
+
+/* Smooth transitions for interactive elements */
+* {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Button hover animations */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Custom animations for the hero section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in animation to main content */
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Gradient text effect for headings */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
