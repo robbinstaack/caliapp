@@ -13,8 +13,9 @@ export default function InstallationGuide() {
         "Lade das Workshop-Repository direkt als ZIP-Datei herunter (kein Git benötigt).",
       command: "",
       additionalInfo:
-        "Der Link zum Repository wird im Workshop bereitgestellt. Einfach als ZIP herunterladen und entpacken.",
+        "Gehe zum GitHub Repository und lade es als ZIP herunter. Klicke auf 'Code' → 'Download ZIP' und entpacke die Datei auf deinem Computer.",
       icon: "📦",
+      link: "https://github.com/robbinstaack/caliapp",
     },
     {
       stepNumber: 2,
@@ -25,9 +26,20 @@ export default function InstallationGuide() {
       additionalInfo:
         "Gehe zu https://nodejs.org und lade die LTS-Version herunter. Installiere sie normal. Nach der Installation sollten 'node' und 'npm' im Terminal verfügbar sein.",
       icon: "🟢",
+      link: "https://nodejs.org",
     },
     {
       stepNumber: 3,
+      title: "Cursor IDE vorbereiten",
+      description:
+        "Öffne Cursor, lade das Projekt und bereite die Entwicklungsumgebung vor.",
+      command: "",
+      additionalInfo:
+        "1. Cursor öffnen 2. Ordner öffnen (File → Open Folder) und das entpackte Projekt wählen 3. Terminal öffnen (Terminal → New Terminal) 4. Chat öffnen (Cmd+L oder Ctrl+L)",
+      icon: "🎯",
+    },
+    {
+      stepNumber: 4,
       title: "Homebrew installieren (optional für macOS)",
       description:
         "Homebrew vereinfacht die Installation von Entwicklungstools auf macOS.",
@@ -35,16 +47,7 @@ export default function InstallationGuide() {
       additionalInfo:
         "Nur für macOS-Nutzer: Besuche https://brew.sh für die Installation. Windows/Linux-Nutzer können diesen Schritt überspringen. Alternative zu direkten Downloads.",
       icon: "🍺",
-    },
-    {
-      stepNumber: 4,
-      title: "HomePro installieren",
-      description:
-        "HomePro ist unser Tool für die lokale Entwicklung und das Projekt-Management.",
-      command: "",
-      additionalInfo:
-        "Die Installationsanweisungen für HomePro werden im Workshop erklärt. Falls bereits installiert, einfach updaten.",
-      icon: "🏠",
+      link: "https://brew.sh",
     },
     {
       stepNumber: 5,
@@ -57,12 +60,12 @@ export default function InstallationGuide() {
     },
     {
       stepNumber: 6,
-      title: "Environment-Datei erstellen",
+      title: "Environment-Datei erstellen (.env.local)",
       description:
         "Erstelle eine .env.local Datei im Projekt-Root über deine IDE (Cursor).",
       command: "",
       additionalInfo:
-        "Rechtsklick im Explorer → 'New File' → '.env.local' eingeben. Diese Datei speichert sensible Konfigurationsdaten lokal.",
+        "Rechtsklick im Explorer → 'New File' → '.env.local' eingeben. Der Punkt am Anfang sorgt dafür, dass Git diese Datei automatisch ignoriert und sie nicht aus Versehen hochgeladen wird.",
       icon: "🔑",
     },
     {
@@ -72,7 +75,7 @@ export default function InstallationGuide() {
         "Öffne die .env.local Datei und füge deinen Mapbox Access Token hinzu.",
       command: "MAPBOX_ACCESS_TOKEN=dein_token_hier",
       additionalInfo:
-        "Den aktuellen Token bekommst du im Workshop. Ohne Token funktionieren die Karten nicht korrekt. Speichere die Datei nach dem Hinzufügen.",
+        "⚠️ WICHTIG: Den Token bekommst du im Workshop. Teile diese Datei NIEMALS öffentlich! Tokens sind wie Passwörter - wenn sie öffentlich werden, kann jeder auf dein Mapbox-Konto zugreifen und Kosten verursachen.",
       icon: "🗺️",
     },
     {
@@ -110,6 +113,7 @@ export default function InstallationGuide() {
               command={step.command}
               additionalInfo={step.additionalInfo}
               icon={step.icon}
+              link={step.link}
             />
           ))}
         </div>
